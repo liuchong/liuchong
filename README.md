@@ -7,7 +7,7 @@
 <!--START_SECTION:waka-->
 
 ```txt
-From: 25 September 2017 - To: 12 April 2025
+From: 25 September 2017 - To: 13 April 2025
 
 Total Time: 5,589 hrs 33 mins
 
