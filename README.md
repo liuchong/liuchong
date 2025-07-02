@@ -7,15 +7,15 @@
 <!--START_SECTION:waka-->
 
 ```txt
-From: 25 September 2017 - To: 29 June 2025
+From: 25 September 2017 - To: 01 July 2025
 
-Total Time: 5,719 hrs 58 mins
+Total Time: 5,727 hrs 50 mins
 
-Clojure                    1,632 hrs 25 mins>>>>>>>------------------   28.54 %
-Other                      908 hrs 47 mins >>>>---------------------   15.89 %
-Java                       854 hrs 34 mins >>>>---------------------   14.94 %
-Go                         616 hrs 34 mins >>>----------------------   10.78 %
-JavaScript                 486 hrs 52 mins >>-----------------------   08.51 %
+Clojure                    1,632 hrs 25 mins>>>>>>>------------------   28.50 %
+Other                      908 hrs 47 mins >>>>---------------------   15.87 %
+Java                       854 hrs 34 mins >>>>---------------------   14.92 %
+Go                         623 hrs 39 mins >>>----------------------   10.89 %
+JavaScript                 486 hrs 52 mins >>-----------------------   08.50 %
 ```
 
 <!--END_SECTION:waka-->
