@@ -7,14 +7,14 @@
 <!--START_SECTION:waka-->
 
 ```txt
-From: 25 September 2017 - To: 03 August 2025
+From: 25 September 2017 - To: 04 August 2025
 
-Total Time: 5,745 hrs
+Total Time: 5,745 hrs 12 mins
 
 Clojure                    1,632 hrs 25 mins>>>>>>>------------------   28.41 %
 Other                      908 hrs 49 mins >>>>---------------------   15.82 %
-Java                       854 hrs 34 mins >>>>---------------------   14.88 %
-Go                         632 hrs 23 mins >>>----------------------   11.01 %
+Java                       854 hrs 34 mins >>>>---------------------   14.87 %
+Go                         632 hrs 30 mins >>>----------------------   11.01 %
 JavaScript                 487 hrs 46 mins >>-----------------------   08.49 %
 ```
 
