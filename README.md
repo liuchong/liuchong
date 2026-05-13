@@ -2,21 +2,13 @@
 
 <!-- ![GitHub stats](./profile/stats.svg) -->
 
-<table>
-  <tr>
-    <td width="50%">
-      <img src="./profile/stats.svg" width="100%" />
-    </td>
-    <td width="50%">
-      <img src="./profile/top-langs.svg" width="100%" />
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <img src="./profile/streak.svg" width="100%" />
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="./profile/stats.svg" width="49%" />
+  <img src="./profile/top-langs.svg" width="49%" />
+</p>
+<p align="center">
+  <img src="./profile/streak.svg" width="99%" />
+</p>
 
 <!-- <img src="https://cr-skills-chart-widget.azurewebsites.net/api/api?username=liuchong&skills=Java,JavaScript,Python,Go,Rust,Zig&show-other-skills=true"/> -->
 
