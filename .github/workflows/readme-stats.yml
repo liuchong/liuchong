@@ -23,6 +23,7 @@ jobs:
         uses: liuchong/github-personal-stats@v1.0.1
         with:
           card: dashboard
+          version: v1.0.1
           path: profile/github-personal-stats.svg
           options: --user ${{ github.repository_owner }} --width 1000 --height 420 --authored-languages --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com --hide-language Ruby --min-repo-language-share 2
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
