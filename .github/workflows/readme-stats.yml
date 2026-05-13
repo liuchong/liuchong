@@ -1,4 +1,4 @@
-name: Update README stats
+name: Update GitHub Personal Stats
 
 on:
   schedule:
@@ -14,26 +14,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate GitHub stats
-        uses: readme-tools/github-readme-stats-action@v1
-        with:
-          card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&card_width=495
-          path: profile/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check personal stats token
+        env:
+          PERSONAL_STATS_TOKEN: ${{ secrets.PERSONAL_STATS_TOKEN }}
+        run: test -n "$PERSONAL_STATS_TOKEN"
 
-      - name: Generate top languages
-        uses: readme-tools/github-readme-stats-action@v1
+      - name: Generate dashboard
+        uses: liuchong/github-personal-stats@v1.0.0
         with:
-          card: top-langs
-          options: username=${{ github.repository_owner }}&size_weight=0.5&count_weight=0.5&langs_count=8&hide=css,lua,html&layout=compact&card_width=495
-          path: profile/top-langs.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          card: dashboard
+          path: profile/github-personal-stats.svg
+          options: --user ${{ github.repository_owner }} --width 1000 --height 420
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
-      - name: Commit README stats
+      - name: Commit dashboard
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/stats.svg profile/top-langs.svg
-          git commit -m "Update README stats" || exit 0
+          git add profile/github-personal-stats.svg
+          git commit -m "Update GitHub personal stats" || exit 0
           git push

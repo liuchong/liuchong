@@ -1,13 +1,7 @@
 ![Profile views](https://komarev.com/ghpvc/?username=liuchong)
 
-<!-- ![GitHub stats](./profile/stats.svg) -->
-
 <p align="center">
-  <img src="./profile/stats.svg" width="49%" />
-  <img src="./profile/top-langs.svg" width="49%" />
-</p>
-<p align="center">
-  <img src="./profile/streak.svg" width="99%" />
+  <img src="./profile/github-personal-stats.svg" alt="GitHub Personal Stats" width="100%" />
 </p>
 
 <!-- <img src="https://cr-skills-chart-widget.azurewebsites.net/api/api?username=liuchong&skills=Java,JavaScript,Python,Go,Rust,Zig&show-other-skills=true"/> -->
