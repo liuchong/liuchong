@@ -20,11 +20,11 @@ jobs:
         run: test -n "$PERSONAL_STATS_TOKEN"
 
       - name: Generate dashboard
-        uses: liuchong/github-personal-stats@v1.0.0
+        uses: liuchong/github-personal-stats@v1.0.1
         with:
           card: dashboard
           path: profile/github-personal-stats.svg
-          options: --user ${{ github.repository_owner }} --width 1000 --height 420
+          options: --user ${{ github.repository_owner }} --width 1000 --height 420 --authored-languages --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com --hide-language Ruby --min-repo-language-share 2
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
       - name: Commit dashboard
