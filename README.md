@@ -1,7 +1,10 @@
 ![Profile views](https://komarev.com/ghpvc/?username=liuchong)
 
 <p align="center">
-  <img src="./profile/github-personal-stats.svg" alt="GitHub Personal Stats" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/github-personal-stats-dark.svg" />
+    <img src="./profile/github-personal-stats.svg" alt="GitHub Personal Stats" width="100%" />
+  </picture>
 </p>
 
 <!-- <img src="https://cr-skills-chart-widget.azurewebsites.net/api/api?username=liuchong&skills=Java,JavaScript,Python,Go,Rust,Zig&show-other-skills=true"/> -->

@@ -19,19 +19,28 @@ jobs:
           PERSONAL_STATS_TOKEN: ${{ secrets.PERSONAL_STATS_TOKEN }}
         run: test -n "$PERSONAL_STATS_TOKEN"
 
-      - name: Generate dashboard
-        uses: liuchong/github-personal-stats@v1.1.0
+      - name: Generate light dashboard
+        uses: liuchong/github-personal-stats@v1.2.0
         with:
           card: dashboard
-          version: v1.1.0
+          version: v1.2.0
           path: profile/github-personal-stats.svg
-          options: --user ${{ github.repository_owner }} --width 1000 --height 420 --authored-languages --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com --hide-language Ruby --min-repo-language-share 2
+          options: --user ${{ github.repository_owner }} --width 1000 --height 420 --theme light --heat-threshold 123 --authored-languages --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com --hide-language Ruby --min-repo-language-share 2
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
-      - name: Commit dashboard
+      - name: Generate dark dashboard
+        uses: liuchong/github-personal-stats@v1.2.0
+        with:
+          card: dashboard
+          version: v1.2.0
+          path: profile/github-personal-stats-dark.svg
+          options: --user ${{ github.repository_owner }} --width 1000 --height 420 --theme dark --heat-threshold 123 --authored-languages --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com --hide-language Ruby --min-repo-language-share 2
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Commit dashboards
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/github-personal-stats.svg
+          git add profile/github-personal-stats.svg profile/github-personal-stats-dark.svg
           git commit -m "Update GitHub personal stats" || exit 0
           git push
