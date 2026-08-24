@@ -6,20 +6,21 @@ on:
   workflow_dispatch:
 
 env:
-  # Three 275px tiles fill a desktop README row and stack one per row on a
-  # phone, both at 1:1, where a single wide card would be scaled down until its
-  # text was unreadable. The height is pinned rather than fitted so the three
-  # tiles sit flush in that row; 250 clears what the streak tile needs to put
-  # its ring above its figures instead of beside them.
+  # Every figure is its own tile, so the README composes the two rows itself:
+  # stats beside languages, then the contribution total, the heat ring, and the
+  # longest streak. A tile stays at or under 275px because that is what lets a
+  # phone show it at 1:1 instead of scaling it down, which is what made one wide
+  # card unreadable there. Heights are pinned per row so each row sits flush.
   SHARED_OPTIONS: >-
     --user ${{ github.repository_owner }}
     --width 275
-    --height 250
     --heat-threshold 123
     --authored-languages
     --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com
     --hide-language Ruby
     --min-repo-language-share 2
+  PANEL_HEIGHT: --height 220
+  FIGURE_HEIGHT: --height 175
 
 jobs:
   build:
@@ -41,7 +42,7 @@ jobs:
           card: stats
           version: v1.3.0
           path: profile/stats-light.svg
-          options: ${{ env.SHARED_OPTIONS }} --theme light
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.PANEL_HEIGHT }} --theme light
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
       - name: Generate dark stats tile
@@ -50,7 +51,7 @@ jobs:
           card: stats
           version: v1.3.0
           path: profile/stats-dark.svg
-          options: ${{ env.SHARED_OPTIONS }} --theme dark
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.PANEL_HEIGHT }} --theme dark
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
       - name: Generate light languages tile
@@ -59,7 +60,7 @@ jobs:
           card: languages
           version: v1.3.0
           path: profile/languages-light.svg
-          options: ${{ env.SHARED_OPTIONS }} --theme light
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.PANEL_HEIGHT }} --theme light
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
       - name: Generate dark languages tile
@@ -68,25 +69,61 @@ jobs:
           card: languages
           version: v1.3.0
           path: profile/languages-dark.svg
-          options: ${{ env.SHARED_OPTIONS }} --theme dark
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.PANEL_HEIGHT }} --theme dark
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
-      - name: Generate light streak tile
+      - name: Generate light total contributions tile
         uses: liuchong/github-personal-stats@v1.3.0
         with:
-          card: streak
+          card: metric
           version: v1.3.0
-          path: profile/streak-light.svg
-          options: ${{ env.SHARED_OPTIONS }} --theme light
+          path: profile/total-light.svg
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.FIGURE_HEIGHT }} --metric total --theme light
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
-      - name: Generate dark streak tile
+      - name: Generate dark total contributions tile
         uses: liuchong/github-personal-stats@v1.3.0
         with:
-          card: streak
+          card: metric
           version: v1.3.0
-          path: profile/streak-dark.svg
-          options: ${{ env.SHARED_OPTIONS }} --theme dark
+          path: profile/total-dark.svg
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.FIGURE_HEIGHT }} --metric total --theme dark
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Generate light heat ring tile
+        uses: liuchong/github-personal-stats@v1.3.0
+        with:
+          card: heat
+          version: v1.3.0
+          path: profile/heat-light.svg
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.FIGURE_HEIGHT }} --theme light
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Generate dark heat ring tile
+        uses: liuchong/github-personal-stats@v1.3.0
+        with:
+          card: heat
+          version: v1.3.0
+          path: profile/heat-dark.svg
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.FIGURE_HEIGHT }} --theme dark
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Generate light longest streak tile
+        uses: liuchong/github-personal-stats@v1.3.0
+        with:
+          card: metric
+          version: v1.3.0
+          path: profile/longest-light.svg
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.FIGURE_HEIGHT }} --metric longest --theme light
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Generate dark longest streak tile
+        uses: liuchong/github-personal-stats@v1.3.0
+        with:
+          card: metric
+          version: v1.3.0
+          path: profile/longest-dark.svg
+          options: ${{ env.SHARED_OPTIONS }} ${{ env.FIGURE_HEIGHT }} --metric longest --theme dark
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
       - name: Commit tiles
