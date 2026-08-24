@@ -1,10 +1,9 @@
 ![Profile views](https://komarev.com/ghpvc/?username=liuchong)
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/github-personal-stats-dark.svg" />
-    <img src="./profile/github-personal-stats.svg" alt="GitHub Personal Stats" width="100%" />
-  </picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/stats-dark.svg" /><img src="./profile/stats-light.svg" alt="GitHub stats" width="275" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/languages-dark.svg" /><img src="./profile/languages-light.svg" alt="Top languages" width="275" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/streak-dark.svg" /><img src="./profile/streak-light.svg" alt="Contribution streak" width="275" /></picture>
 </p>
 
 <!-- <img src="https://cr-skills-chart-widget.azurewebsites.net/api/api?username=liuchong&skills=Java,JavaScript,Python,Go,Rust,Zig&show-other-skills=true"/> -->
