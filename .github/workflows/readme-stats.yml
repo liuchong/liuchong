@@ -5,6 +5,22 @@ on:
     - cron: "0 2 * * *"
   workflow_dispatch:
 
+env:
+  # Three 275px tiles fill a desktop README row and stack one per row on a
+  # phone, both at 1:1, where a single wide card would be scaled down until its
+  # text was unreadable. The height is pinned rather than fitted so the three
+  # tiles sit flush in that row; 250 clears what the streak tile needs to put
+  # its ring above its figures instead of beside them.
+  SHARED_OPTIONS: >-
+    --user ${{ github.repository_owner }}
+    --width 275
+    --height 250
+    --heat-threshold 123
+    --authored-languages
+    --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com
+    --hide-language Ruby
+    --min-repo-language-share 2
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,28 +35,64 @@ jobs:
           PERSONAL_STATS_TOKEN: ${{ secrets.PERSONAL_STATS_TOKEN }}
         run: test -n "$PERSONAL_STATS_TOKEN"
 
-      - name: Generate light dashboard
-        uses: liuchong/github-personal-stats@v1.2.1
+      - name: Generate light stats tile
+        uses: liuchong/github-personal-stats@v1.3.0
         with:
-          card: dashboard
-          version: v1.2.1
-          path: profile/github-personal-stats.svg
-          options: --user ${{ github.repository_owner }} --width 1000 --height 420 --theme light --heat-threshold 123 --authored-languages --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com --hide-language Ruby --min-repo-language-share 2
+          card: stats
+          version: v1.3.0
+          path: profile/stats-light.svg
+          options: ${{ env.SHARED_OPTIONS }} --theme light
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
-      - name: Generate dark dashboard
-        uses: liuchong/github-personal-stats@v1.2.1
+      - name: Generate dark stats tile
+        uses: liuchong/github-personal-stats@v1.3.0
         with:
-          card: dashboard
-          version: v1.2.1
-          path: profile/github-personal-stats-dark.svg
-          options: --user ${{ github.repository_owner }} --width 1000 --height 420 --theme dark --heat-threshold 123 --authored-languages --author-email mail@liuchong.io,mail@liuchong.dev,mail@liuchong.cn,mail@liuchong.com,mail@liuchong.org,mail@liuchong.net,bjlclc@gmail.com,liuchong@xd.com,liuchong@xindong.com --hide-language Ruby --min-repo-language-share 2
+          card: stats
+          version: v1.3.0
+          path: profile/stats-dark.svg
+          options: ${{ env.SHARED_OPTIONS }} --theme dark
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
-      - name: Commit dashboards
+      - name: Generate light languages tile
+        uses: liuchong/github-personal-stats@v1.3.0
+        with:
+          card: languages
+          version: v1.3.0
+          path: profile/languages-light.svg
+          options: ${{ env.SHARED_OPTIONS }} --theme light
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Generate dark languages tile
+        uses: liuchong/github-personal-stats@v1.3.0
+        with:
+          card: languages
+          version: v1.3.0
+          path: profile/languages-dark.svg
+          options: ${{ env.SHARED_OPTIONS }} --theme dark
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Generate light streak tile
+        uses: liuchong/github-personal-stats@v1.3.0
+        with:
+          card: streak
+          version: v1.3.0
+          path: profile/streak-light.svg
+          options: ${{ env.SHARED_OPTIONS }} --theme light
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Generate dark streak tile
+        uses: liuchong/github-personal-stats@v1.3.0
+        with:
+          card: streak
+          version: v1.3.0
+          path: profile/streak-dark.svg
+          options: ${{ env.SHARED_OPTIONS }} --theme dark
+          token: ${{ secrets.PERSONAL_STATS_TOKEN }}
+
+      - name: Commit tiles
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/github-personal-stats.svg profile/github-personal-stats-dark.svg
+          git add profile
           git commit -m "Update GitHub personal stats" || exit 0
           git push
