@@ -14,7 +14,6 @@
 <!-- <img src="https://cr-skills-chart-widget.azurewebsites.net/api/api?username=liuchong&skills=Java,JavaScript,Python,Go,Rust,Zig&show-other-skills=true"/> -->
 
 <!--START_SECTION:activity-->
-
 ```txt
 From: 26 July 2026 - To: 27 August 2026
 
@@ -31,5 +30,4 @@ Python        +24,456   #####--------------------    5.10 %   100.00% agent    4
 
 # agent    = unattributed    - rest
 ```
-
 <!--END_SECTION:activity-->
