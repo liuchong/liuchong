@@ -31,9 +31,14 @@ env:
   # The two panels are drawn at both widths. A phone README column is about
   # 308px and takes the 275px drawing at 1:1. Heights are pinned per row so each
   # row sits flush.
+  # The panels' inner margin is pinned to the 16px a code block indents its text
+  # by, so the rows above the chart begin on the same column as the chart itself.
+  # Left to itself it scales with the width and comes to 21 at this size, which
+  # reads as the chart being outdented by five pixels. The three figures below
+  # centre what they hold, so their margin has nothing to line up with.
   DRAW_OPTIONS: --user ${{ github.repository_owner }}
-  DESKTOP_PANEL: --width 420 --height 220
-  PHONE_PANEL: --width 275 --height 220
+  DESKTOP_PANEL: --width 420 --height 220 --padding 16
+  PHONE_PANEL: --width 275 --height 220 --padding 16
   FIGURE: --width 279 --height 175
 
   # Lines rather than hours as the figure, because how much was written says more
