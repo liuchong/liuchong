@@ -18,16 +18,23 @@ env:
 
   # Every figure is its own tile, so the README composes the two rows itself:
   # stats beside languages, then the contribution total, the heat ring, and the
-  # longest streak. Both rows come to about 825px, so they line up.
+  # longest streak.
+  #
+  # Both rows are sized to the width of the column they sit in, measured on the
+  # profile page: 846px, and a code block below them fills all of it, so a row
+  # any narrower reads as indented. Images on one line are separated by 3.8px of
+  # inline whitespace, which the arithmetic has to leave room for: two panels
+  # come to 843.8px and three figures to 844.6px, both a hair inside the column.
+  # Rounding them up to fill it exactly risks a wrap, which would drop the last
+  # tile onto its own line.
   #
   # The two panels are drawn at both widths. A phone README column is about
-  # 308px and takes the 275px drawing at 1:1; a desktop column is about 846px and
-  # takes the 412px one, which is what makes the top row reach the width of the
-  # three figures below it. Heights are pinned per row so each row sits flush.
+  # 308px and takes the 275px drawing at 1:1. Heights are pinned per row so each
+  # row sits flush.
   DRAW_OPTIONS: --user ${{ github.repository_owner }}
-  DESKTOP_PANEL: --width 412 --height 220
+  DESKTOP_PANEL: --width 420 --height 220
   PHONE_PANEL: --width 275 --height 220
-  FIGURE: --width 275 --height 175
+  FIGURE: --width 279 --height 175
 
   # Lines rather than hours as the figure, because how much was written says more
   # about a day than how long it took; the hours ride along as a column, and the
