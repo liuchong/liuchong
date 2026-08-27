@@ -13,18 +13,23 @@
 
 <!-- <img src="https://cr-skills-chart-widget.azurewebsites.net/api/api?username=liuchong&skills=Java,JavaScript,Python,Go,Rust,Zig&show-other-skills=true"/> -->
 
-<!--START_SECTION:waka-->
+<!--START_SECTION:activity-->
 
 ```txt
-From: 25 September 2017 - To: 24 August 2026
+From: 26 July 2026 - To: 27 August 2026
 
-Total Time: 6,980 hrs 4 mins
+LINES BY LANGUAGE
 
-Clojure                    1,639 hrs 12 mins     >>>>>>-------------------   23.48 %
-Other                      943 hrs 3 mins        >>>----------------------   13.51 %
-Go                         925 hrs 17 mins       >>>----------------------   13.26 %
-Java                       860 hrs 45 mins       >>>----------------------   12.33 %
-JavaScript                 490 hrs 57 mins       >>-----------------------   07.03 %
+Total        +479,437   lines, 99.93% by an agent
+
+Markdown     +124,573   #########################   25.98 %    99.96% agent   36 hrs 42 mins
+Rust          +92,428   ###################------   19.27 %    99.90% agent   34 hrs  3 mins
+Go            +88,220   ##################-------   18.40 %    99.99% agent   24 hrs 41 mins
+Emacs Lisp    +37,348   #######------------------    7.78 %    99.86% agent    6 hrs 33 mins
+Zig           +30,677   ######-------------------    6.39 %   100.00% agent   12 hrs 25 mins
+Python        +24,456   #####--------------------    5.10 %   100.00% agent    4 hrs 51 mins
+
+# agent    = unattributed    - rest
 ```
 
-<!--END_SECTION:waka-->
+<!--END_SECTION:activity-->
