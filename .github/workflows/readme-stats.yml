@@ -36,7 +36,10 @@ env:
   # Left to itself it scales with the width and comes to 21 at this size, which
   # reads as the chart being outdented by five pixels. The three figures below
   # centre what they hold, so their margin has nothing to line up with.
-  DRAW_OPTIONS: --user ${{ github.repository_owner }}
+  #
+  # Every tile is set in the same monospaced face the chart is, so the page reads
+  # as one thing rather than as cards above a code block.
+  DRAW_OPTIONS: --user ${{ github.repository_owner }} --font mono
   DESKTOP_PANEL: --width 420 --height 220 --padding 16
   PHONE_PANEL: --width 275 --height 220 --padding 16
   FIGURE: --width 279 --height 175
@@ -62,124 +65,124 @@ jobs:
         run: test -n "$PERSONAL_STATS_TOKEN"
 
       - name: Read the profile once
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           mode: fetch
-          version: v1.5.0
+          version: v1.5.1
           path: ${{ env.SAVED_PROFILE }}
           options: ${{ env.FETCH_OPTIONS }}
           token: ${{ secrets.PERSONAL_STATS_TOKEN }}
 
       # Nothing below reaches GitHub, so none of it needs the token.
       - name: Draw the light stats tile for a desktop column
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: stats
-          version: v1.5.0
+          version: v1.5.1
           path: profile/stats-light.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.DESKTOP_PANEL }} --theme light
 
       - name: Draw the light stats tile for a phone column
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: stats
-          version: v1.5.0
+          version: v1.5.1
           path: profile/stats-narrow-light.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.PHONE_PANEL }} --theme light
 
       - name: Draw the dark stats tile for a desktop column
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: stats
-          version: v1.5.0
+          version: v1.5.1
           path: profile/stats-dark.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.DESKTOP_PANEL }} --theme dark
 
       - name: Draw the dark stats tile for a phone column
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: stats
-          version: v1.5.0
+          version: v1.5.1
           path: profile/stats-narrow-dark.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.PHONE_PANEL }} --theme dark
 
       - name: Draw the light languages tile for a desktop column
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: languages
-          version: v1.5.0
+          version: v1.5.1
           path: profile/languages-light.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.DESKTOP_PANEL }} --hide-language Ruby --theme light
 
       - name: Draw the light languages tile for a phone column
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: languages
-          version: v1.5.0
+          version: v1.5.1
           path: profile/languages-narrow-light.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.PHONE_PANEL }} --hide-language Ruby --theme light
 
       - name: Draw the dark languages tile for a desktop column
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: languages
-          version: v1.5.0
+          version: v1.5.1
           path: profile/languages-dark.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.DESKTOP_PANEL }} --hide-language Ruby --theme dark
 
       - name: Draw the dark languages tile for a phone column
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: languages
-          version: v1.5.0
+          version: v1.5.1
           path: profile/languages-narrow-dark.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.PHONE_PANEL }} --hide-language Ruby --theme dark
 
       - name: Draw the light total contributions tile
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: metric
-          version: v1.5.0
+          version: v1.5.1
           path: profile/total-light.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.FIGURE }} --metric total --theme light
 
       - name: Draw the dark total contributions tile
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: metric
-          version: v1.5.0
+          version: v1.5.1
           path: profile/total-dark.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.FIGURE }} --metric total --theme dark
 
       - name: Draw the light heat ring tile
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: heat
-          version: v1.5.0
+          version: v1.5.1
           path: profile/heat-light.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.FIGURE }} --heat-threshold 123 --theme light
 
       - name: Draw the dark heat ring tile
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: heat
-          version: v1.5.0
+          version: v1.5.1
           path: profile/heat-dark.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.FIGURE }} --heat-threshold 123 --theme dark
 
       - name: Draw the light longest streak tile
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: metric
-          version: v1.5.0
+          version: v1.5.1
           path: profile/longest-light.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.FIGURE }} --metric longest --theme light
 
       - name: Draw the dark longest streak tile
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           card: metric
-          version: v1.5.0
+          version: v1.5.1
           path: profile/longest-dark.svg
           options: --fixture ${{ env.SAVED_PROFILE }} ${{ env.DRAW_OPTIONS }} ${{ env.FIGURE }} --metric longest --theme dark
 
@@ -194,10 +197,10 @@ jobs:
           path: ${{ env.ACTIVITY_RECORD }}
 
       - name: Write the activity chart into the README
-        uses: liuchong/github-personal-stats@v1.5.0
+        uses: liuchong/github-personal-stats@v1.5.1
         with:
           mode: update-readme
-          version: v1.5.0
+          version: v1.5.1
           section-name: activity
           target-path: README.md
           options: --activity-record ${{ env.ACTIVITY_RECORD }}/snapshots ${{ env.ACTIVITY_BLOCKS }}
