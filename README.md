@@ -15,18 +15,18 @@
 
 <!--START_SECTION:activity-->
 ```text
-From: 26 July 2026 - To: 27 August 2026
+From: 26 July 2026 - To: 28 August 2026
 
 LINES BY LANGUAGE
 
-Total        +488,042   lines, 99.93% by an agent
+Total        +486,331   lines, 99.93% by an agent
 
-Markdown     +127,034   #########################   26.02 %    99.96% agent   37 hrs 29 mins
-Rust          +92,988   ##################-------   19.05 %    99.90% agent   34 hrs 20 mins
-Go            +88,384   #################--------   18.10 %    99.99% agent   24 hrs 41 mins
-Emacs Lisp    +41,193   ########-----------------    8.44 %    99.88% agent    7 hrs 23 mins
-Zig           +31,158   ######-------------------    6.38 %   100.00% agent   12 hrs 34 mins
-Python        +25,050   #####--------------------    5.13 %   100.00% agent    4 hrs 58 mins
+Markdown     +126,139   #########################   25.93 %    99.96% agent   37 hrs 10 mins
+Rust          +92,024   ##################-------   18.92 %    99.90% agent   34 hrs 18 mins
+Go            +87,791   #################--------   18.05 %    99.99% agent   24 hrs 28 mins
+Emacs Lisp    +41,193   ########-----------------    8.47 %    99.88% agent    7 hrs 23 mins
+Zig           +31,158   ######-------------------    6.40 %   100.00% agent   12 hrs 34 mins
+Python        +26,051   #####--------------------    5.35 %   100.00% agent    4 hrs 52 mins
 
 # agent    = unattributed    - rest
 ```
