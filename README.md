@@ -19,14 +19,14 @@ From: 26 July 2026 - To: 16 October 2026
 
 LINES BY LANGUAGE
 
-Total      +43,483   lines, 100.00% by an agent
+Total      +42,359   lines, 100.00% by an agent
 
-Rust        +9,086   #########################   20.89 %   100.00% agent   1 hrs 46 mins
-Swift       +6,421   ##################-------   14.76 %   100.00% agent   1 hrs 32 mins
-Markdown    +6,009   #################--------   13.81 %   100.00% agent   2 hrs 20 mins
-Dart        +5,096   ##############-----------   11.71 %   100.00% agent   1 hrs 33 mins
-Python      +4,070   ###########--------------    9.35 %   100.00% agent   0 hrs 50 mins
-Kotlin      +2,436   #######------------------    5.60 %   100.00% agent   0 hrs  6 mins
+Rust        +9,086   #########################   21.44 %   100.00% agent   1 hrs 46 mins
+Swift       +6,421   ##################-------   15.15 %   100.00% agent   1 hrs 32 mins
+Markdown    +5,969   ################---------   14.09 %   100.00% agent   2 hrs 20 mins
+Dart        +5,096   ##############-----------   12.03 %   100.00% agent   1 hrs 33 mins
+Python      +3,201   #########----------------    7.55 %   100.00% agent   0 hrs 41 mins
+Kotlin      +2,436   #######------------------    5.75 %   100.00% agent   0 hrs  6 mins
 
 # agent    = unattributed    - rest
 ```
